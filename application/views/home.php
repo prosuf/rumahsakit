@@ -163,7 +163,8 @@
                             <div class="form-group">
                                 <label class="control-label col-xs-3">Jenis Kelamin</label>
                                 <div class="col-xs-8">
-                                    <select value="<?php echo $jenis_kelamin; ?>" name="jenis_kelamin" class="form-control" required>
+                                    <select name="jenis_kelamin" class="form-control" required>
+                                        <option><?php echo $jenis_kelamin; ?></option>
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
