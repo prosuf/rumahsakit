@@ -13,8 +13,8 @@ class Rs extends CI_Controller
 
     function index()
     {
-        // $x['data'] = $this->mbarang->show_pasien();
-        $this->load->view('home');
+        $x['data'] = $this->mdata->show_pasien();
+        $this->load->view('home', $x);
     }
 }
 
