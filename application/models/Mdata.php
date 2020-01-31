@@ -17,7 +17,7 @@ class Mdata extends CI_Model
     }
     function edit_pasien($no_pasien, $nama, $alamat, $jenis_kelamin, $umur, $keluhan, $no_hp)
     {
-        $hasil = $this->db->query("UPDATE tblpasien SET nama='$nama',alamat='$alamat',jenis_kelamin='$jenis_kelamin',umur='$umur',keluhan='$keluhan',no_hp='$no_hp' WHERE no_pasien='$no_pasien'");
+        $hasil = $this->db->query("UPDATE tblpasien SET nama='$nama', alamat='$alamat', jenis_kelamin='$jenis_kelamin', umur='$umur', keluhan='$keluhan', no_hp='$no_hp' WHERE no_pasien='$no_pasien'");
         return $hasil;
     }
 }

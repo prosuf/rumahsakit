@@ -48,7 +48,7 @@
                         <td><?php echo $jenis_kelamin; ?></td>
                         <td><?php echo $umur; ?></td>
                         <td><?php echo $keluhan; ?></td>
-                        <td><?php echo $no_pasien; ?></td>
+                        <td><?php echo $no_hp; ?></td>
                         <td>
                             <a class="btn btn-xs btn-info" data-toggle="modal" data-target="#modal_edit<?php echo $no_pasien; ?>">Edit</a>
                             <a class="btn btn-xs btn-danger" data-toggle="modal" href="rs/delete/<?php echo $no_pasien; ?>">Hapus</a>
@@ -71,7 +71,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3">No. Pasien</label>
                             <div class="col-xs-8">
-                                <input type="text" name="no_pasien" class="form-control" placeholder="Nomer Pasien..." required>
+                                <input type="number" name="no_pasien" class="form-control" placeholder="Nomer Pasien..." required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -122,6 +122,82 @@
             </div>
         </div>
     </div>
+    <!-- END MODAL ADD PASIEN -->
+    <?php
+    foreach ($data->result_array() as $i) :
+        $no_pasien = $i['no_pasien'];
+        $nama = $i['nama'];
+        $alamat = $i['alamat'];
+        $jenis_kelamin = $i['jenis_kelamin'];
+        $umur = $i['umur'];
+        $keluhan = $i['keluhan'];
+        $no_hp = $i['no_hp'];
+    ?>
+        <div class="modal fade" id="modal_edit<?php echo $no_pasien; ?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                        <h3 class="modal-title" id="myModalLabel">Edit Data Pasien</h3>
+                    </div>
+                    <form action="<?php echo base_url('rs/edit_pasien') ?>" class="form-horizontal" method="post">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="control-label col-xs-3">No. Pasien</label>
+                                <div class="col-xs-8">
+                                    <input type="text" value="<?php echo $no_pasien; ?>" name="no_pasien" class="form-control" placeholder="Nomer Pasien..." readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-3">Nama</label>
+                                <div class="col-xs-8">
+                                    <input type="text" value="<?php echo $nama; ?>" name="nama" class="form-control" placeholder="Nama Pasien..." required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-3">Alamat</label>
+                                <div class="col-xs-8">
+                                    <input name="alamat" value="<?php echo $alamat; ?>" class="form-control" cols="30" rows="10" placeholder="Alamat..." required></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-3">Jenis Kelamin</label>
+                                <div class="col-xs-8">
+                                    <select value="<?php echo $jenis_kelamin; ?>" name="jenis_kelamin" class="form-control" required>
+                                        <option value="Laki-laki">Laki-laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-3">Umur</label>
+                                <div class="col-xs-8">
+                                    <input type="text" value="<?php echo $umur; ?>" name="umur" class="form-control" placeholder="Umur..." required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-3">Keluhan</label>
+                                <div class="col-xs-8">
+                                    <input type="text" value="<?php echo $keluhan; ?>" name="keluhan" class="form-control" placeholder="Keluhan..." required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-3">Nomer HP</label>
+                                <div class="col-xs-8">
+                                    <input type="number" value="<?php echo $no_hp; ?>" name="no_hp" class="form-control" placeholder="Nomer HP..." required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                                <button class="btn btn-info">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    <!-- END MODAL ADD PASIEN -->
     <script src="<?php echo base_url('assets/js/jquery-2.2.4.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.js') ?>"></script>
 </body>
