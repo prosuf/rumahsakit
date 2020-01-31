@@ -59,7 +59,71 @@
         </table>
     </div>
     <!-- MODAL ADD BARANG -->
-
+    <div class="modal fade" id="modal_add_new" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h3 class="modal-title" id="myModalLabel">Input Data Pasien</h3>
+                </div>
+                <form action="<?php echo base_url('rs/simpan_pasien') ?>" class="form-horizontal" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">No. Pasien</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="no_pasien" class="form-control" placeholder="Nomer Pasien..." required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Nama</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="nama" class="form-control" placeholder="Nama Pasien..." required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Alamat</label>
+                            <div class="col-xs-8">
+                                <textarea name="alamat" class="form-control" cols="30" rows="10" placeholder="Alamat..." required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Jenis Kelamin</label>
+                            <div class="col-xs-8">
+                                <select name="jenis_kelamin" class="form-control" required>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Umur</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="umur" class="form-control" placeholder="Umur..." required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Keluhan</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="keluhan" class="form-control" placeholder="Keluhan..." required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Nomer HP</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="no_hp" class="form-control" placeholder="Nomer HP..." required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                            <button class="btn btn-info">Simpan</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="<?php echo base_url('assets/js/jquery-2.2.4.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.js') ?>"></script>
 </body>
 
 </html>
